@@ -1,0 +1,29 @@
+.wrapper {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.description {
+    margin-left: 25px;
+    
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 15px;
+
+}
+
+.moreDetails {
+    padding: 5px;
+}
+
+.moreDetailsList {
+    border-bottom: 1px solid black;
+}
+
+.linkDetails {
+    display: block;
+    margin-bottom: 10px;
+}
