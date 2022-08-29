@@ -39,7 +39,7 @@ const Movies = () => {
 
         </form>
         <ul>
-            {movieList && movieList.map(movie => <li key={movie.id}><Link to={`/movies/${movie.id}`}>{movie.title}</Link></li>)}
+            {movieList && movieList.map(movie => <li key={movie.id}><Link state={{from: `/movies/?query=${query}`}} to={`/movies/${movie.id}`}>{movie.title}</Link></li>)}
         </ul>
         </>
         

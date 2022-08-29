@@ -1,10 +1,9 @@
 import ApiMovies from "services/fetch-movie";
 import { useState, useEffect } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const HomePage = () => {
     const [trendMovies, setTrendMovies] = useState(null)
-    const location = useLocation()
 
     useEffect (() => {
         ApiMovies.fetchTrendMovies().then(d => setTrendMovies(d.results))
@@ -14,7 +13,7 @@ const HomePage = () => {
     return (
         trendMovies && (
             <ul>
-                {trendMovies.map(movie => (<li key={movie.id}><Link state={{from: location}} to={`/movies/${movie.id}`}>{movie.title}</Link></li>))}
+                {trendMovies.map(movie => (<li key={movie.id}><Link state={{from: "/"}} to={`/movies/${movie.id}`}>{movie.title}</Link></li>))}
             </ul>
         )
     )
