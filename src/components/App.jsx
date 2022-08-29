@@ -1,11 +1,14 @@
 import { Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Container from "./container/container";
 import AppBar from "./appBar/app-bar";
-import HomePage from "./homepage/home-page";
-import Movies from "./movies/movies";
-import MovieDetails from "./movieDetails/movieDetails";
-import CastInformation from "./castInformation/castInformation";
-import MovieReviews from "./movieReviews/movieReviews";
+
+const Movies = lazy(() => import("./movies/movies"));
+const MovieDetails = lazy(() => import("./movieDetails/movieDetails"));
+const CastInformation = lazy(() => import("./castInformation/castInformation")) ;
+const MovieReviews = lazy(() => import("./movieReviews/movieReviews")) ;
+const HomePage = lazy(() => import ("./homepage/home-page"));
+
 
 export const App = () => {
 
@@ -14,6 +17,7 @@ export const App = () => {
     <Container>
       <AppBar/>
       
+      <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/movies" element={<Movies/>}/>
@@ -22,6 +26,8 @@ export const App = () => {
           <Route path="reviews" element={<MovieReviews/>}/>
         </Route>
       </Routes>
+      </Suspense>
+      
       
     </Container>
     

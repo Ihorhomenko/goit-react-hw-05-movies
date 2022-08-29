@@ -1,20 +1,22 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import ApiMovies from "services/fetch-movie" 
 
 const MovieReviews = () => {
     const {movieId} = useParams()
     const [reviews, setReviews] = useState (null)
-    const API_KEY = "0f4a49552ce13567b5c82d2d8d909ccf"
+    
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`).then(res => {if(res.ok){return res.json()} return Promise.reject(new Error('Nothing found for your request'))}).then(d => setReviews(d.results))
+        ApiMovies.fetchReviewsMovies(movieId).then(d => setReviews(d.results))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <div>
              {reviews && reviews.length > 0 ? (
                 <ul>
                     {reviews.map(review => 
-                        <li>
+                        <li key={reviews.id}>
                             {
                                 <div>
                                 <h4>{`Author: ${review.author_details.username}`}</h4>

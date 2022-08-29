@@ -1,0 +1,30 @@
+.input{
+    margin-right: 10px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #2a363b;
+    transition: all 250ms linear;
+}
+
+.input:focus{
+    border: 1px solid #2196f3;
+}
+
+
+.form-btn {
+    background-color: #2a363b;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 5px 15px;
+    outline: none;
+    border: none;
+    transition: all 250ms linear;
+}
+
+.form-btn:hover{
+    background-color: #2196f3;
+    color: aliceblue;
+    /* outline: 1px solid #2196f3;
+    border: 1px solid #2196f3; */
+}
